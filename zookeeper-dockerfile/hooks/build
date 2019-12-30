@@ -3,5 +3,6 @@
 # this script is use to custom build args
 
 echo 'before in build.sh'
-docker build  -f $DOCKERFILE_PATH -t $IMAGE_NAME . # --build-arg CUSTOM=$VAR
+curl https://www.google.com
+docker build  --build-arg MIRROR=https://archive.apache.org/dist/ -f $DOCKERFILE_PATH -t $IMAGE_NAME . # --build-arg CUSTOM=$VAR
 echo 'after in build.sh'
