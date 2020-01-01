@@ -2,6 +2,25 @@
 
 # this script is use to custom build args
 
+cyan='\e[96m'
+none='\e[0m'
+
+#SOURCE_BRANCH ：当前正在测试的分支或标签的名称.
+#SOURCE_COMMIT ：正在测试的提交的SHA1哈希.
+#COMMIT_MSG ：来自正在测试和构建的提交的消息.
+#DOCKER_REPO ：正在构建的Docker存储库的名称.
+#DOCKERFILE_PATH ：当前正在构建的dockerfile.
+#DOCKER_TAG ：正在构建的Docker存储库标签.
+#IMAGE_NAME ：正在构建的Docker存储库的名称和标签.
+
+echo -e ${cyan}SOURCE_BRANCH:  ${SOURCE_BRANCH}${none}
+echo -e ${cyan}SOURCE_COMMIT:  ${SOURCE_COMMIT}${none}
+echo -e ${cyan}COMMIT_MSG:     ${COMMIT_MSG}${none}
+echo -e ${cyan}DOCKER_REPO:    ${DOCKER_REPO}${none}
+echo -e ${cyan}DOCKERFILE_PATH:${DOCKERFILE_PATH}${none}
+echo -e ${cyan}DOCKER_TAG:     ${DOCKER_TAG}${none}
+echo -e ${cyan}IMAGE_NAME:     ${IMAGE_NAME}${none}
+
 echo 'before in build.sh'
-docker build  -f $DOCKERFILE_PATH -t $IMAGE_NAME . # --build-arg CUSTOM=$VAR
+docker build  --build-arg MIRROR=https://archive.apache.org/dist/ --build-arg ZK_VERSION=${DOCKER_TAG} -f $DOCKERFILE_PATH -t $IMAGE_NAME . # --build-arg CUSTOM=$VAR
 echo 'after in build.sh'
