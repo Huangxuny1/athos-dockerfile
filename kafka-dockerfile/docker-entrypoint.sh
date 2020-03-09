@@ -50,4 +50,3 @@ if [ ! -z "$DELETE_TOPIC_ENABLE" ]; then
 fi
 
 echo "$@"
-exec "$@"

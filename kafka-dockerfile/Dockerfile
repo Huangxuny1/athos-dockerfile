@@ -7,7 +7,7 @@ ARG SCALA_VERSION=2.13
 ARG MIRROR=https://mirrors.tuna.tsinghua.edu.cn/apache/kafka
 
 ENV KAFKA_DIR=/opt/kafka \
-    KAFKA_ID=1 \
+    KAFKA_ID=-1 \
     KAFKA_HOST=127.0.0.1 \
     KAFKA_PORT=9092 \
     ZK_HOST=zk \
